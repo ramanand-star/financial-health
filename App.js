@@ -150,6 +150,20 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
+      
+      {/* Brand Header with Logo */}
+      <View style={styles.brandHeader}>
+        <View style={styles.logoIcon}>
+          <Text style={styles.logoTextChar}>R</Text>
+          <View style={styles.logoArrowLine} />
+          <View style={styles.logoArrowHead} />
+        </View>
+        <View style={styles.brandTextContainer}>
+          <Text style={styles.brandTitle}>RAMANAND</Text>
+          <Text style={styles.brandSubtitle}>WEALTH & STRATEGY</Text>
+        </View>
+      </View>
+
       <View style={styles.navBar}>
         <TouchableOpacity style={[styles.tab, view === 'DIAGNOSTIC' && styles.activeTab]} onPress={() => setView('DIAGNOSTIC')}>
           <Text style={[styles.tabText, view === 'DIAGNOSTIC' && styles.activeTabText]}>Wealth Diagnostic</Text>
@@ -361,9 +375,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#020617' }, 
   scroll: { padding: 16, paddingBottom: 30 }, 
+
+  // Native Vector Logo Elements
+  brandHeader: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4 },
+  logoIcon: { width: 34, height: 34, borderRadius: 6, borderWidth: 2, borderColor: '#f8fafc', justifyContent: 'center', alignItems: 'center', position: 'relative', marginRight: 12 },
+  logoTextChar: { color: '#f8fafc', fontSize: 18, fontWeight: '800', fontStyle: 'italic', top: -1 },
+  logoArrowLine: { position: 'absolute', width: 14, height: 2, backgroundColor: '#6366f1', transform: [{ rotate: '-45deg' }], bottom: 12, right: 2 },
+  logoArrowHead: { position: 'absolute', width: 0, height: 0, borderStyle: 'solid', borderLeftWidth: 4, borderRightWidth: 4, borderBottomWidth: 6, borderLeftColor: 'transparent', borderRightColor: 'transparent', borderBottomColor: '#6366f1', transform: [{ rotate: '45deg' }], top: 7, right: 4 },
+  brandTextContainer: { justifyContent: 'center' },
+  brandTitle: { color: '#f8fafc', fontSize: 16, fontWeight: '800', letterSpacing: 0.5 },
+  brandSubtitle: { color: '#6366f1', fontSize: 9, fontWeight: '700', letterSpacing: 1.5, marginTop: 1 },
   
   // Nav Bar
-  navBar: { flexDirection: 'row', backgroundColor: '#0f172a', padding: 4, borderRadius: 12, marginBottom: 16, borderWidth: 1, borderColor: '#1e293b' },
+  navBar: { flexDirection: 'row', backgroundColor: '#0f172a', padding: 4, borderRadius: 12, marginTop: 12, marginBottom: 16, marginHorizontal: 16, borderWidth: 1, borderColor: '#1e293b' },
   tab: { flex: 1, paddingVertical: 10, alignItems: 'center', borderRadius: 8 },
   activeTab: { backgroundColor: '#1e293b' },
   tabText: { color: '#64748b', fontWeight: '600', fontSize: 13 },
@@ -381,8 +405,6 @@ const styles = StyleSheet.create({
   
   // Inputs
   input: { borderBottomWidth: 1, borderBottomColor: '#1e293b', color: '#f8fafc', paddingVertical: 8, marginBottom: 12, fontSize: 14 },
-  
-  // Specific Red styles for Liabilities
   inputDanger: { borderBottomColor: '#ef4444', color: '#ef4444' }, 
   
   // Buttons
